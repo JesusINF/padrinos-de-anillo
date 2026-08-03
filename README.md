@@ -2,6 +2,11 @@
 
 Invitación web privada en intención y pública en alojamiento para pedir a Mary y Everardo que sean padrinos de anillo el 23 de enero de 2027 en La Piedad, Michoacán.
 
+## Sitio publicado
+
+- Invitación: https://jesusinf.github.io/padrinos-de-anillo/
+- Repositorio: https://github.com/JesusINF/padrinos-de-anillo
+
 ## Desarrollo local
 
 ```powershell
