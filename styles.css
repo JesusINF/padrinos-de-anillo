@@ -42,7 +42,7 @@
   --burgundy: #4a1f2b;
   --ink: #352c2d;
   --muted-ink: #655b5c;
-  --gold: #9b6d1f;
+  --gold: #996a1e;
   --gold-light: #d8bd78;
   --error: #9b2c2c;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -113,7 +113,7 @@ button {
   padding: var(--space-3) var(--space-4);
   color: var(--paper);
   background: var(--burgundy);
-  border-radius: 0.75rem;
+  border-radius: 0.875rem;
   transform: translateY(-160%);
   transition: transform 160ms var(--ease-out);
 }
@@ -170,7 +170,7 @@ button {
 
 .hero__ribbon {
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   top: clamp(16.5rem, 36dvh, 21.5rem);
   right: -15%;
   width: 58%;
@@ -183,26 +183,41 @@ button {
 }
 
 .hero__paper {
+  --paper-shape: polygon(0 2.2rem, 100% 0, 100% 100%, 0 100%);
+  --paper-shadow: drop-shadow(0 22px 55px rgba(73, 52, 47, 0.14)) drop-shadow(0 4px 14px rgba(73, 52, 47, 0.08));
   position: relative;
   z-index: 2;
+  isolation: isolate;
   width: calc(100% - 1.5rem);
   max-width: 42rem;
   margin: clamp(-3.75rem, -11vw, -3rem) auto 0;
-  padding: var(--space-8) var(--space-5) max(var(--space-6), env(safe-area-inset-bottom));
+  padding: var(--space-12) var(--space-5) max(var(--space-6), env(safe-area-inset-bottom));
   text-align: center;
-  background: var(--paper);
+  background: transparent;
   border-radius: 1rem 1rem 0 0;
-  box-shadow: var(--shadow-paper);
-  clip-path: polygon(0 2.2rem, 100% 0, 100% 100%, 0 100%);
 }
 
 .hero__paper::before {
   content: "";
   position: absolute;
+  z-index: -3;
+  inset: 0;
+  pointer-events: none;
+  background: var(--paper);
+  border-radius: inherit;
+  clip-path: var(--paper-shape);
+  filter: var(--paper-shadow);
+}
+
+.hero__paper::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
   inset: 0.45rem;
   pointer-events: none;
   border: 1px solid rgba(155, 109, 31, 0.22);
   border-radius: inherit;
+  clip-path: var(--paper-shape);
 }
 
 .hero__botanical {
@@ -230,6 +245,7 @@ button {
 
 .ring-mark {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 50%;
   display: grid;
@@ -787,6 +803,8 @@ html.motion-ready .hero__ribbon {
   }
 
   .hero__paper {
+    --paper-shape: inset(0);
+    --paper-shadow: drop-shadow(-22px 0 55px rgba(73, 52, 47, 0.12));
     display: flex;
     width: 100%;
     max-width: none;
@@ -795,8 +813,6 @@ html.motion-ready .hero__ribbon {
     flex-direction: column;
     justify-content: center;
     border-radius: 0;
-    box-shadow: -22px 0 55px rgba(73, 52, 47, 0.12);
-    clip-path: none;
   }
 
   .ring-mark {

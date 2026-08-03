@@ -12,7 +12,7 @@ colors:
   burgundy: "#4a1f2b"
   ink: "#352c2d"
   muted-ink: "#655b5c"
-  gold: "#9b6d1f"
+  gold: "#996a1e"
   gold-light: "#d8bd78"
   error: "#9b2c2c"
 typography:
@@ -157,7 +157,7 @@ La paleta imita papel iluminado al amanecer: fondos fríos y tranquilos, superfi
 
 La base es una procesión vertical pensada para teléfonos de 320–430px: imagen del Santuario, pliegues, hoja con la pregunta y única aceptación, historia, lugar y cierre. Los contenedores usan ancho intrínseco, márgenes laterales cómodos y una escala espacial de 4px. Las secciones principales respiran con separaciones amplias de la escala, mientras que metadatos y controles usan pasos pequeños y repetibles.
 
-El hero ocupa al menos `100dvh`. En móvil, la imagen llena la franja superior; dos pliegues triangulares y la cinta cruzan la transición, y la hoja asciende con borde superior inclinado. La hoja deja un margen exterior estrecho, limita su ancho y añade espacio de área segura en el extremo inferior. Ninguna capa decorativa puede generar desplazamiento horizontal ni interceptar interacción.
+El hero ocupa al menos `100dvh`. En móvil, la imagen llena la franja superior; dos pliegues triangulares y la cinta cruzan la transición por detrás de la hoja, y la hoja asciende con borde superior inclinado. El recorte diagonal pertenece a una capa de fondo, nunca al contenedor de contenido, para conservar completo el sello de anillos. La hoja deja un margen exterior estrecho, limita su ancho y añade espacio de área segura en el extremo inferior. Ninguna capa decorativa puede tapar texto, generar desplazamiento horizontal ni interceptar interacción.
 
 A partir de 48rem, la composición progresa a dos columnas: Santuario a la izquierda y hoja a la derecha. La hoja pierde el recorte inclinado y se convierte en un plano vertical; el sello de anillos se coloca sobre la costura entre ambas columnas. Historia y lugar también pasan a dúos asimétricos. No se debe “encoger” esta versión de escritorio para crear móvil.
 
