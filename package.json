@@ -1,0 +1,10 @@
+{
+  "name": "padrinos-de-anillo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Invitación para Mary y Everardo como padrinos de anillo.",
+  "scripts": {
+    "serve": "npx --yes serve . -l 4173 --no-clipboard",
+    "check": "node scripts/check-project.mjs"
+  }
+}

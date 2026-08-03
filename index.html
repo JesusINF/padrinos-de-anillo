@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e9edf0" />
+    <meta
+      name="description"
+      content="Una pregunta muy especial para Mary y Everardo: ¿aceptan ser nuestros padrinos de anillo?"
+    />
+    <title>Mary y Everardo | Padrinos de anillo</title>
+    <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/manrope-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/santuario-papel.webp" as="image" type="image/webp" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <!--
+      THESIS: Una invitación que se despliega como papel ceremonial y evita la tarjeta de boda genérica.
+      OWN-WORLD: Papel marfil, azul niebla, rosa empolvado y salvia, con relieve suave, tinta borgoña y un único sello dorado.
+      STORY: Mary y Everardo reconocen que la pregunta es para ellos, comprenden el papel de padrinos de anillo y aceptan una sola vez.
+      FIRST VIEWPORT: El Santuario de papel ocupa la parte alta; los nombres, la pregunta, la fecha y la acción aparecen en una hoja que asciende desde abajo.
+      FORM: Catedral de papel al amanecer, cuarta dirección de la exploración, seed 87abb211.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+    <main id="contenido">
+      <section class="hero" aria-labelledby="titulo-principal">
+        <div class="hero__art" role="img" aria-label="Ilustración en papel del Santuario del Señor de La Piedad"></div>
+        <div class="hero__fold hero__fold--blush" aria-hidden="true"></div>
+        <div class="hero__fold hero__fold--sage" aria-hidden="true"></div>
+        <div class="hero__ribbon" aria-hidden="true"></div>
+        <div class="hero__paper">
+          <svg class="hero__botanical" viewBox="0 0 180 250" aria-hidden="true" focusable="false">
+            <path d="M166 238C129 196 111 149 111 86M111 151c-29-5-52-24-65-50m69 20c27-12 44-32 53-58M105 91C81 76 69 56 65 30m52 39c20-12 31-29 36-50"></path>
+            <path d="M48 101c-17 2-30-5-39-19 18-3 31 4 39 19Zm64 50c-19 4-34-2-46-18 19-4 35 2 46 18Zm3-31c3-18 13-30 29-37-1 18-11 31-29 37Zm-10-30c-15-8-23-21-23-39 16 8 24 21 23 39Zm13-22c2-17 11-29 27-36-1 17-10 29-27 36Z"></path>
+          </svg>
+          <div class="ring-mark" aria-hidden="true">
+            <svg viewBox="0 0 72 42" focusable="false">
+              <circle cx="27" cy="23" r="14"></circle>
+              <circle cx="45" cy="23" r="14"></circle>
+              <path d="M36 4 41 10 36 15 31 10Z"></path>
+            </svg>
+          </div>
+
+          <p class="role-title">Padrinos de anillo</p>
+          <h1 id="titulo-principal">Mary <span>y</span> Everardo</h1>
+          <p class="hero__question">¿Aceptan ser nuestros padrinos de anillo?</p>
+
+          <div class="event-summary" aria-label="Fecha y lugar de la boda">
+            <time datetime="2027-01-23">
+              <strong>23</strong>
+              <span>enero</span>
+              <strong>2027</strong>
+            </time>
+            <p>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+              La Piedad, Michoacán
+            </p>
+          </div>
+
+          <button class="hero__accept accept-trigger" type="button" disabled>
+            <span class="accept-button__label">Aceptamos con alegría</span>
+            <span class="accept-button__loader" aria-hidden="true"></span>
+          </button>
+          <p class="hero-status" role="status" aria-live="polite">Preparando la invitación...</p>
+          <a class="hero__cta" href="#historia-titulo">Conocer el significado</a>
+        </div>
+      </section>
+
+      <section class="story section-shell reveal" aria-labelledby="historia-titulo">
+        <div class="story__copy">
+          <p class="lead">Hay momentos que se vuelven más valiosos por las personas que los acompañan.</p>
+          <h2 id="historia-titulo">Queremos vivir este momento con ustedes.</h2>
+          <p>
+            El anillo representa una promesa que elegimos cuidar todos los días. Nos haría muy felices que ustedes fueran parte de ese símbolo.
+          </p>
+        </div>
+        <div class="story__seal" aria-hidden="true">
+          <span></span>
+          <svg viewBox="0 0 72 42" focusable="false">
+            <circle cx="27" cy="23" r="14"></circle>
+            <circle cx="45" cy="23" r="14"></circle>
+          </svg>
+        </div>
+      </section>
+
+      <section class="place reveal" aria-labelledby="lugar-titulo">
+        <div class="place__image" role="img" aria-label="Detalle de la ilustración del Santuario del Señor de La Piedad"></div>
+        <div class="place__copy section-shell">
+          <h2 id="lugar-titulo">Nos encontraremos en La Piedad.</h2>
+          <p>El 23 de enero de 2027 celebraremos una promesa, rodeados de las personas que queremos cerca.</p>
+          <time datetime="2027-01-23">Sábado, 23 de enero de 2027</time>
+        </div>
+      </section>
+
+      <section id="respuesta" class="response section-shell reveal" aria-labelledby="respuesta-titulo">
+        <div class="response__paper">
+          <div class="response__prompt" id="response-prompt">
+            <svg class="response__flourish" viewBox="0 0 160 44" aria-hidden="true" focusable="false">
+              <path d="M80 37C65 21 49 14 26 13m54 24c15-16 31-23 54-24M52 20c-9-8-18-10-29-6 7 8 17 10 29 6Zm56 0c9-8 18-10 29-6-7 8-17 10-29 6ZM70 28c-5-10-12-15-22-17 3 10 10 16 22 17Zm20 0c5-10 12-15 22-17-3 10-10 16-22 17Z"></path>
+            </svg>
+            <div class="response__icon" aria-hidden="true">
+              <svg viewBox="0 0 72 42" focusable="false">
+                <circle cx="27" cy="23" r="14"></circle>
+                <circle cx="45" cy="23" r="14"></circle>
+              </svg>
+            </div>
+            <h2 id="respuesta-titulo">¿Aceptan ser nuestros padrinos de anillo?</h2>
+            <p>Su respuesta se guardará una sola vez.</p>
+            <button class="accept-button accept-trigger" id="accept-button" type="button" disabled>
+              <span class="accept-button__label">Aceptamos con alegría</span>
+              <span class="accept-button__loader" aria-hidden="true"></span>
+            </button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite">Preparando la invitación...</p>
+          </div>
+
+          <div class="response__success" id="response-success" hidden tabindex="-1">
+            <svg class="success-rings" viewBox="0 0 72 42" aria-hidden="true" focusable="false">
+              <circle cx="27" cy="23" r="14"></circle>
+              <circle cx="45" cy="23" r="14"></circle>
+              <path d="m27 23 6 6 13-15"></path>
+            </svg>
+            <h2>Gracias, Mary y Everardo.</h2>
+            <p>Nos llena de alegría saber que serán nuestros padrinos de anillo.</p>
+            <time datetime="2027-01-23">Nos vemos el 23 de enero de 2027.</time>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Con mucho cariño, para Mary y Everardo.</p>
+      <p>La Piedad, Michoacán · 23.01.2027</p>
+    </footer>
+
+    <dialog class="confirm-dialog" id="confirm-dialog" aria-labelledby="confirm-title">
+      <form method="dialog">
+        <div class="confirm-dialog__rings" aria-hidden="true">
+          <svg viewBox="0 0 72 42" focusable="false">
+            <circle cx="27" cy="23" r="14"></circle>
+            <circle cx="45" cy="23" r="14"></circle>
+          </svg>
+        </div>
+        <h2 id="confirm-title">¿Confirmamos su respuesta?</h2>
+        <p>Al aceptar, la respuesta quedará registrada y no podrá enviarse de nuevo.</p>
+        <div class="confirm-dialog__actions">
+          <button class="button-secondary" value="cancel">Todavía no</button>
+          <button class="button-primary" id="confirm-button" value="confirm">Sí, aceptamos</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
