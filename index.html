@@ -69,11 +69,19 @@
             <span class="accept-button__loader" aria-hidden="true"></span>
           </button>
           <p class="hero-status" role="status" aria-live="polite">Preparando la invitación...</p>
+          <div class="hero__success" id="hero-success" hidden tabindex="-1">
+            <svg class="success-rings" viewBox="0 0 72 42" aria-hidden="true" focusable="false">
+              <circle cx="27" cy="23" r="14"></circle>
+              <circle cx="45" cy="23" r="14"></circle>
+              <path d="m27 23 6 6 13-15"></path>
+            </svg>
+            <p><strong>Gracias, Mary y Everardo.</strong> Nos llena de alegría saber que serán nuestros padrinos de anillo.</p>
+          </div>
           <a class="hero__cta" href="#historia-titulo">Conocer el significado</a>
         </div>
       </section>
 
-      <section class="story section-shell reveal" aria-labelledby="historia-titulo">
+      <section class="story section-shell reveal reveal--story" aria-labelledby="historia-titulo">
         <div class="story__copy">
           <p class="lead">Hay momentos que se vuelven más valiosos por las personas que los acompañan.</p>
           <h2 id="historia-titulo">Queremos vivir este momento con ustedes.</h2>
@@ -90,7 +98,7 @@
         </div>
       </section>
 
-      <section class="place reveal" aria-labelledby="lugar-titulo">
+      <section class="place reveal reveal--place" aria-labelledby="lugar-titulo">
         <div class="place__image" role="img" aria-label="Detalle de la ilustración del Santuario del Señor de La Piedad"></div>
         <div class="place__copy section-shell">
           <h2 id="lugar-titulo">Nos encontraremos en La Piedad.</h2>
@@ -99,39 +107,6 @@
         </div>
       </section>
 
-      <section id="respuesta" class="response section-shell reveal" aria-labelledby="respuesta-titulo">
-        <div class="response__paper">
-          <div class="response__prompt" id="response-prompt">
-            <svg class="response__flourish" viewBox="0 0 160 44" aria-hidden="true" focusable="false">
-              <path d="M80 37C65 21 49 14 26 13m54 24c15-16 31-23 54-24M52 20c-9-8-18-10-29-6 7 8 17 10 29 6Zm56 0c9-8 18-10 29-6-7 8-17 10-29 6ZM70 28c-5-10-12-15-22-17 3 10 10 16 22 17Zm20 0c5-10 12-15 22-17-3 10-10 16-22 17Z"></path>
-            </svg>
-            <div class="response__icon" aria-hidden="true">
-              <svg viewBox="0 0 72 42" focusable="false">
-                <circle cx="27" cy="23" r="14"></circle>
-                <circle cx="45" cy="23" r="14"></circle>
-              </svg>
-            </div>
-            <h2 id="respuesta-titulo">¿Aceptan ser nuestros padrinos de anillo?</h2>
-            <p>Su respuesta se guardará una sola vez.</p>
-            <button class="accept-button accept-trigger" id="accept-button" type="button" disabled>
-              <span class="accept-button__label">Aceptamos con alegría</span>
-              <span class="accept-button__loader" aria-hidden="true"></span>
-            </button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite">Preparando la invitación...</p>
-          </div>
-
-          <div class="response__success" id="response-success" hidden tabindex="-1">
-            <svg class="success-rings" viewBox="0 0 72 42" aria-hidden="true" focusable="false">
-              <circle cx="27" cy="23" r="14"></circle>
-              <circle cx="45" cy="23" r="14"></circle>
-              <path d="m27 23 6 6 13-15"></path>
-            </svg>
-            <h2>Gracias, Mary y Everardo.</h2>
-            <p>Nos llena de alegría saber que serán nuestros padrinos de anillo.</p>
-            <time datetime="2027-01-23">Nos vemos el 23 de enero de 2027.</time>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer>

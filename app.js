@@ -14,9 +14,7 @@ const isConfigured = !firebaseConfig.apiKey.startsWith("REPLACE_");
 const acceptButtons = [...document.querySelectorAll(".accept-trigger")];
 const confirmButton = document.querySelector("#confirm-button");
 const confirmDialog = document.querySelector("#confirm-dialog");
-const promptPanel = document.querySelector("#response-prompt");
-const successPanel = document.querySelector("#response-success");
-const formStatus = document.querySelector("#form-status");
+const successPanel = document.querySelector("#hero-success");
 const heroStatus = document.querySelector(".hero-status");
 
 let database = null;
@@ -24,8 +22,6 @@ let authentication = null;
 let submissionLocked = false;
 
 function setStatus(message, state = "idle") {
-  formStatus.textContent = message;
-  formStatus.dataset.state = state;
   heroStatus.textContent = message;
   heroStatus.dataset.state = state;
 }
@@ -36,7 +32,7 @@ function showSuccess() {
     button.disabled = true;
     button.querySelector(".accept-button__label").textContent = "Respuesta registrada";
   }
-  promptPanel.hidden = true;
+  heroStatus.hidden = true;
   successPanel.hidden = false;
   successPanel.focus({ preventScroll: true });
 }
@@ -131,9 +127,13 @@ confirmDialog.addEventListener("click", (event) => {
 });
 
 function initializeReveals() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    !("IntersectionObserver" in window)
+  ) return;
 
   document.documentElement.classList.add("motion-ready");
+  const revealElements = [...document.querySelectorAll(".reveal")];
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
@@ -142,10 +142,10 @@ function initializeReveals() {
         observer.unobserve(entry.target);
       }
     },
-    { rootMargin: "0px 0px -12%", threshold: 0.16 }
+    { rootMargin: "0px 0px -8%", threshold: 0.08 }
   );
 
-  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  revealElements.forEach((element) => observer.observe(element));
 }
 
 initializeReveals();

@@ -73,13 +73,6 @@ components:
     rounded: "{rounded.button-compact}"
     padding: "{spacing.3} {spacing.5}"
     height: "3.25rem"
-  accept-button:
-    backgroundColor: "{colors.sage-dark}"
-    textColor: "{colors.paper}"
-    typography: "{typography.label}"
-    rounded: "{rounded.control}"
-    padding: "{spacing.4} {spacing.6}"
-    height: "3.5rem"
   button-secondary:
     backgroundColor: "{colors.paper-deep}"
     textColor: "{colors.burgundy}"
@@ -87,11 +80,6 @@ components:
     rounded: "{rounded.control}"
     padding: "{spacing.3} {spacing.5}"
     height: "3.5rem"
-  response-panel:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.panel-inner}"
-    padding: "{spacing.12} {spacing.5}"
 ---
 
 # Design System: Padrinos de Anillo
@@ -109,7 +97,7 @@ El mundo visual combina solemnidad y calidez con una densidad baja: una imagen p
 - Arquitectura local reinterpretada como relieve de papel, nunca como fondo fotográfico genérico.
 - Capas marfil, rosa empolvado y salvia con tinta borgoña y acentos de oro envejecido.
 - Contraste entre la expresividad editorial de Cormorant Garamond y la claridad funcional de Manrope.
-- Una procesión vertical, mobile-first, que conduce de reconocimiento a significado y aceptación.
+- Una procesión vertical, mobile-first, que presenta la aceptación una sola vez y después conduce al significado y al lugar.
 - Movimiento limpio y progresivo que revela el ensamblaje sin bloquear la lectura.
 - Estados de respuesta inequívocos que preservan la invitación completa después de aceptar.
 
@@ -167,11 +155,11 @@ La paleta imita papel iluminado al amanecer: fondos fríos y tranquilos, superfi
 
 ## Layout
 
-La base es una procesión vertical pensada para teléfonos de 320–430px: imagen del Santuario, pliegues, hoja con la pregunta, historia, lugar, respuesta y cierre. Los contenedores usan ancho intrínseco, márgenes laterales cómodos y una escala espacial de 4px. Las secciones principales respiran con separaciones amplias de la escala, mientras que metadatos y controles usan pasos pequeños y repetibles.
+La base es una procesión vertical pensada para teléfonos de 320–430px: imagen del Santuario, pliegues, hoja con la pregunta y única aceptación, historia, lugar y cierre. Los contenedores usan ancho intrínseco, márgenes laterales cómodos y una escala espacial de 4px. Las secciones principales respiran con separaciones amplias de la escala, mientras que metadatos y controles usan pasos pequeños y repetibles.
 
 El hero ocupa al menos `100dvh`. En móvil, la imagen llena la franja superior; dos pliegues triangulares y la cinta cruzan la transición, y la hoja asciende con borde superior inclinado. La hoja deja un margen exterior estrecho, limita su ancho y añade espacio de área segura en el extremo inferior. Ninguna capa decorativa puede generar desplazamiento horizontal ni interceptar interacción.
 
-A partir de 48rem, la composición progresa a dos columnas: Santuario a la izquierda y hoja a la derecha. La hoja pierde el recorte inclinado y se convierte en un plano vertical; el sello de anillos se coloca sobre la costura entre ambas columnas. Historia y lugar también pasan a dúos asimétricos, mientras el panel de respuesta permanece centrado y limitado. No se debe “encoger” esta versión de escritorio para crear móvil.
+A partir de 48rem, la composición progresa a dos columnas: Santuario a la izquierda y hoja a la derecha. La hoja pierde el recorte inclinado y se convierte en un plano vertical; el sello de anillos se coloca sobre la costura entre ambas columnas. Historia y lugar también pasan a dúos asimétricos. No se debe “encoger” esta versión de escritorio para crear móvil.
 
 La imagen puede recortarse para favorecer la cúpula y la torre, pero debe conservar el reconocimiento arquitectónico. El contenido soporta zoom, texto largo y salto de línea mediante medidas fluidas, `clamp()`, Grid/Flexbox e `overflow-wrap`; el scroll horizontal está prohibido.
 
@@ -179,7 +167,7 @@ La imagen puede recortarse para favorecer la cúpula y la torre, pero debe conse
 
 ## Elevation & Depth
 
-La profundidad imita papel apilado, no vidrio ni neumorfismo. La hoja principal y el panel de respuesta usan sombras ambientales amplias y de baja opacidad; la cinta combina sombra exterior y una línea de luz interior para sugerir tejido. El relieve botánico emplea sombras de un píxel en dos direcciones, y los bordes dorados semitransparentes separan hojas sin endurecerlas. El diálogo es la única capa claramente elevada sobre un velo oscuro con desenfoque moderado.
+La profundidad imita papel apilado, no vidrio ni neumorfismo. La hoja principal usa una sombra ambiental amplia y de baja opacidad; la cinta combina sombra exterior y una línea de luz interior para sugerir tejido. El relieve botánico emplea sombras de un píxel en dos direcciones, y los bordes dorados semitransparentes separan hojas sin endurecerlas. El diálogo es la única capa claramente elevada sobre un velo oscuro con desenfoque moderado.
 
 ### Shadow Vocabulary
 
@@ -213,10 +201,6 @@ El componente firma ensambla la imagen arquitectónica, dos pliegues, una cinta 
 - **Activo:** compresión breve a `scale(0.97)` para respuesta táctil.
 - **Foco:** contorno dorado de 3px con separación de 4px, siempre visible.
 
-### Panel de respuesta
-
-Es una pieza de papelería dentro de un sobre salvia: marco exterior amplio, hoja interior, doble filete, adorno botánico, anillos y una sola acción. El estado exitoso sustituye el prompt dentro del mismo panel; no navega, oculta ni destruye el resto del recuerdo.
-
 ### Diálogo de confirmación
 
 La confirmación introduce una pausa deliberada antes de una respuesta irreversible. Usa hoja marfil, anillos dorados, título borgoña, explicación explícita y dos acciones con jerarquía inequívoca. En móvil las acciones se apilan; desde 48rem se alinean en dos columnas. El backdrop oscurece y desenfoca sin borrar por completo el contexto.
@@ -226,12 +210,12 @@ La confirmación introduce una pausa deliberada antes de una respuesta irreversi
 - **Preparando / deshabilitado:** la acción mantiene forma y etiqueta, baja a 58% de opacidad, pierde sombra y usa cursor no permitido. No debe parecer disponible antes de que el estado remoto esté resuelto.
 - **Enviando:** la etiqueta se oculta sin cambiar el tamaño del control y aparece un spinner de anillo; `aria-busy` y el estado visible deben coincidir.
 - **Error:** el mensaje vive junto a la acción, usa el color de error y peso semibold, y se anuncia mediante una región de estado. Nunca se comunica sólo por color.
-- **Confirmado:** anillos con marca, agradecimiento por nombre y fecha; la página completa sigue disponible.
+- **Confirmado:** la acción del hero se sustituye por anillos con marca y un agradecimiento por nombre; la página completa sigue disponible.
 - **Irreversible:** la interfaz explica que sólo puede registrarse una vez antes de confirmar. Este contrato visual acompaña —pero no sustituye— la restricción real en Firebase Security Rules.
 
 ### Motion
 
-Las interacciones usan transiciones explícitas de color, opacidad, sombra y transformación entre 140–180ms con salida suave. Las secciones aparecen al hacer scroll mediante opacidad y traslación vertical durante 640ms. Al iniciar, los pliegues entran en una secuencia solapada de 760–820ms para que parezca que el sobre se ensambla; la lectura y la acción no esperan a una intro bloqueante.
+Las interacciones usan transiciones explícitas de color, opacidad, sombra y transformación entre 140–180ms con salida suave. Al hacer scroll, la historia entra con elevación, enfoque progresivo y un sello que se despliega; el lugar se descubre con una cortina lateral y su texto avanza después. Al iniciar, los pliegues entran en una secuencia solapada de 760–820ms para que parezca que el sobre se ensambla; la lectura y la acción no esperan a una intro bloqueante.
 
 `prefers-reduced-motion: reduce` elimina desplazamientos, revela el contenido inmediatamente, desactiva el scroll suave y reduce animaciones/transiciones a una duración imperceptible. Ninguna función depende del movimiento.
 
