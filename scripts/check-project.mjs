@@ -16,6 +16,7 @@ const assertions = [
   [contents["index.html"].includes("viewport-fit=cover"), "El viewport debe respetar áreas seguras móviles"],
   [contents["styles.css"].includes("--paper-shape") && !/\.hero__paper\s*\{[^}]*clip-path:/s.test(contents["styles.css"]), "El sello no debe quedar recortado por el contenedor de papel"],
   [contents["styles.css"].includes("prefers-reduced-motion"), "Debe respetarse movimiento reducido"],
+  [!contents["styles.css"].includes("0.01ms !important"), "El movimiento reducido no debe destruir globalmente la retroalimentación"],
   [!contents["styles.css"].includes("transition: all"), "No debe utilizarse transition: all"],
   [contents["firestore.rules"].includes("allow read, update, delete: if false"), "Las respuestas deben ser inmutables y privadas"],
   [contents["firestore.rules"].includes("!exists("), "La regla debe bloquear una segunda creación"],

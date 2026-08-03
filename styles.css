@@ -875,13 +875,19 @@ html.motion-ready .hero__ribbon {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+  .hero__fold--blush,
+  .hero__fold--sage,
+  .hero__ribbon,
+  .accept-button__loader {
+    animation: none !important;
+  }
+
+  .skip-link,
+  .hero__accept,
+  .hero__cta,
+  .button-primary,
+  .button-secondary {
+    transition: none;
   }
 
   html.motion-ready .reveal--story .story__copy,
