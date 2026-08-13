@@ -21,6 +21,25 @@ service cloud.firestore {
       allow read, update, delete: if false;
     }
 
+    match /responses/felipe-banda {
+      allow create: if request.auth != null
+        && !exists(/databases/$(database)/documents/responses/felipe-banda)
+        && request.resource.data.keys().hasOnly([
+          'accepted',
+          'createdAt',
+          'inviteId',
+          'recipients',
+          'responderUid'
+        ])
+        && request.resource.data.accepted == true
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.inviteId == 'felipe-banda'
+        && request.resource.data.recipients == ['Felipe']
+        && request.resource.data.responderUid == request.auth.uid;
+
+      allow read, update, delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
